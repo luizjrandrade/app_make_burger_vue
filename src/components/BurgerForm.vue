@@ -2,7 +2,7 @@
     <div>
          <p>Component de Mensagem</p>
          <div>
-             <form id="burger-form">
+             <form id="burger-form" @submit="createBurger">
                  <div class="input-container">
                      <label for="nome">Nome do Cliente: </label>
                      <input type="text" id="nome" name="nome" v-model="nome" placeholder="Seu nome">
@@ -62,6 +62,35 @@ export default {
             this.paes = data.paes;
             this.carnes = data.carnes;
             this.opcionaisdata = data.opcionais;
+        },
+        async createBurger(e){ //para o evento de mostrar ingredientes
+            e.preventDefault();
+            
+            const data = {
+                nome: this.nome,
+                carne: this.carne,
+                pao: this.pao,
+                opcionais: Array.from(this.opcionais),
+                status: "Solicitado"
+            }
+            
+            const dataJson = JSON.stringify(data); //formaliza a requisição json
+            const req = await fetch("http://localhost:3000/burgers", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: dataJson
+            });
+
+            const res = await req.json();
+            // colocar uma msg de sistema
+
+
+            //limpa os campos
+            this.nome = "";
+            this.carne = "";
+            this.pao = "";
+            this.opcionais = "";
+            
         }
     },
     mounted(){
