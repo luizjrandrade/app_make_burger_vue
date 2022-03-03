@@ -1,4 +1,10 @@
-# 3_make_your_burger
+# Make Your Burger APP
+
+# Tela Home
+![tela_home](https://user-images.githubusercontent.com/47089927/156572354-36d89648-8531-4192-bae1-5bfcc6d9d9ac.png)
+
+# Tela de Pedidos
+![tela_pedidos](https://user-images.githubusercontent.com/47089927/156573005-12c76784-536e-4412-ad89-48b68d1e9cd3.png)
 
 ## Project setup
 ```
